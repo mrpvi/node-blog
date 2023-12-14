@@ -21,9 +21,10 @@ mongoose
   // .connect('mongodb://127.0.0.1:27017/node-blog')
   .connect(process.env.DATABASE_URI)
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    const port = process.env.PORT || 3000
+    app.listen(port, () => {
       console.clear;
-      console.log("Application run at " + process.env.PORT + " port");
+      console.log("Application run at " + port + " port");
     });
   })
   .catch((err) => console.log(err));
